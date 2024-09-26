@@ -1,10 +1,10 @@
+import 'package:copy_firebase_process/features/presentation/views/widgets/emp/emp_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/utls/app_get_bloc.dart';
-import '../../manager/fetch_emp_cubit/fetch_emp_cubit.dart';
-import '../../manager/firebase_bloc/firebase_bloc.dart';
-import '../widgets/emp/emp_list.dart';
+import '../manager/fetch_emp_cubit/fetch_emp_cubit.dart';
+import '../manager/firebase_bloc/firebase_bloc.dart';
 
 class EmpView extends StatelessWidget {
   const EmpView({super.key});

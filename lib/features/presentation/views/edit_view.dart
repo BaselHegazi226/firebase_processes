@@ -1,11 +1,11 @@
 import 'package:copy_firebase_process/features/data/model/employee_model/employee_model.dart';
+import 'package:copy_firebase_process/features/presentation/views/widgets/edit/edit_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/utls/app_get_bloc.dart';
-import '../../manager/firebase_bloc/firebase_bloc.dart';
-import '../widgets/edit/edit_view_body.dart';
+import '../manager/firebase_bloc/firebase_bloc.dart';
 
 class EditView extends StatelessWidget {
   static const id = '/editView';

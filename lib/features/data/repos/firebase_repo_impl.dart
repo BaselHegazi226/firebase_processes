@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:copy_firebase_process/core/error/failure.dart';
 import 'package:copy_firebase_process/features/data/model/employee_model/employee_model.dart';
 import 'package:copy_firebase_process/features/data/repos/services.dart';
 import 'package:dartz/dartz.dart';
 
+import '../../../core/error/failure.dart';
 import 'firebase_repo.dart';
 
 class FirebaseRepoImpl implements FirebaseRepo {

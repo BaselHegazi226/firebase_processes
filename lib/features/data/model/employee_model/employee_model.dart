@@ -1,4 +1,4 @@
-import 'package:copy_firebase_process/core/helper/AssetsData.dart';
+import '../../../../core/helper/AssetsData.dart';
 
 class EmployeeModel {
   final String id;

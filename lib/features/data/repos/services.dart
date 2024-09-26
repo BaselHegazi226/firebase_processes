@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:copy_firebase_process/core/helper/AssetsData.dart';
+
+import '../../../core/helper/AssetsData.dart';
 
 FirebaseFirestore myFireStore = FirebaseFirestore.instance;
 CollectionReference collRef = myFireStore.collection('Employee');

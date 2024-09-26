@@ -1,5 +1,6 @@
-import 'package:copy_firebase_process/core/utls/custom_shimmer.dart';
 import 'package:flutter/material.dart';
+
+import 'custom_shimmer.dart';
 
 class ShimmerList extends StatelessWidget {
   const ShimmerList({

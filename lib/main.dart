@@ -1,5 +1,4 @@
 import 'package:copy_firebase_process/core/helper/simple_bloc_observer.dart';
-import 'package:copy_firebase_process/core/utls/app_get_bloc.dart';
 import 'package:copy_firebase_process/core/utls/app_router.dart';
 import 'package:copy_firebase_process/features/presentation/manager/firebase_bloc/firebase_bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -7,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'core/utls/app_get_bloc.dart';
 import 'core/utls/firebase_options.dart';
 
 void main() async {

@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-class CustomTextFormField extends StatelessWidget {
+class CustomTextFormField extends StatefulWidget {
   final TextEditingController textEditingController;
   final String hintText;
-
   final bool obscureText;
   final TextInputType keyboardType;
   final Widget? prefixIcon;
-  final FocusNode? focusNode; // Added FocusNode
+  final FocusNode? focusNode;
   final String? errorMess;
   final void Function(String)? onChanged;
   final Color color;
   final void Function()? onTap;
   final void Function(String?)? onSaved;
   final void Function(String)? onFieldSubmitted;
+
   const CustomTextFormField({
     super.key,
     required this.hintText,
@@ -29,45 +29,45 @@ class CustomTextFormField extends StatelessWidget {
     this.onTap,
     this.onSaved,
   });
+
+  @override
+  _CustomTextFormFieldState createState() => _CustomTextFormFieldState();
+}
+
+class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width * .9,
       child: TextFormField(
         maxLines: null,
-        onFieldSubmitted: onFieldSubmitted,
-        onSaved: onSaved,
+        onFieldSubmitted: widget.onFieldSubmitted,
+        onSaved: widget.onSaved,
         onTap: () {
-          setState(() {
-            FocusScope.of(context).requestFocus(
-              nameFocusNode,
-            );
-          });
+          setState(() {});
+          FocusScope.of(context).requestFocus(widget.focusNode);
         },
-        controller: textEditingController,
-        obscureText: obscureText,
-        onChanged: onChanged,
-        focusNode: focusNode,
+        controller: widget.textEditingController,
+        obscureText: widget.obscureText,
+        onChanged: widget.onChanged,
+        focusNode: widget.focusNode,
         validator: (value) {
-          if (value!.isEmpty) {
+          if (value == null || value.isEmpty) {
             return 'Empty Field';
           }
           return null;
         },
         textInputAction: TextInputAction.next,
         style: TextStyle(
-          color: color,
+          color: widget.color,
           fontWeight: FontWeight.w900,
           fontSize: 16,
         ),
         decoration: InputDecoration(
-          prefixIcon: prefixIcon,
-          prefixStyle: TextStyle(
-            color: color,
-          ),
-          hintText: hintText,
+          prefixIcon: widget.prefixIcon,
+          hintText: widget.hintText,
           hintStyle: TextStyle(
-            color: color,
+            color: widget.color,
             fontWeight: FontWeight.w600,
           ),
           border: outlineInputBorder(
@@ -80,7 +80,7 @@ class CustomTextFormField extends StatelessWidget {
           ),
           focusedBorder: outlineInputBorder(
             borderRadius: 8,
-            color: color, // Focus color applied here
+            color: widget.color,
           ),
           disabledBorder: outlineInputBorder(
             borderRadius: 8,
@@ -88,21 +88,21 @@ class CustomTextFormField extends StatelessWidget {
           ),
           errorBorder: outlineInputBorder(
             borderRadius: 8,
-            color: focusNode != null && focusNode!.hasFocus
-                ? color // Change to focus color on error
+            color: widget.focusNode != null && widget.focusNode!.hasFocus
+                ? widget.color
                 : Colors.red,
           ),
           focusedErrorBorder: outlineInputBorder(
             borderRadius: 8,
-            color: focusNode != null && focusNode!.hasFocus
-                ? color // Change to focus color on error
+            color: widget.focusNode != null && widget.focusNode!.hasFocus
+                ? widget.color
                 : Colors.red,
           ),
           errorStyle: const TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 12,
           ),
-          errorText: errorMess,
+          errorText: widget.errorMess,
           fillColor: Colors.grey.shade200,
           filled: true,
         ),

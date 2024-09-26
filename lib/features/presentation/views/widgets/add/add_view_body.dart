@@ -56,13 +56,6 @@ class _AddViewBodyState extends State<AddViewBody> {
                 prefixIcon: const Icon(
                   Icons.person_rounded,
                 ),
-                onTap: () {
-                  setState(() {
-                    FocusScope.of(context).requestFocus(
-                      nameFocusNode,
-                    );
-                  });
-                },
               ),
               const SizedBox(height: 16),
               CustomTextFormField(
@@ -72,12 +65,6 @@ class _AddViewBodyState extends State<AddViewBody> {
                 color: positionFocusNode.hasFocus ? focusColor : defaultColor,
                 keyboardType: TextInputType.text,
                 prefixIcon: const Icon(Icons.work),
-                onTap: () {
-                  FocusScope.of(context).requestFocus(
-                    positionFocusNode,
-                  );
-                  setState(() {});
-                },
               ),
               const SizedBox(height: 16),
               CustomTextFormField(
@@ -89,12 +76,6 @@ class _AddViewBodyState extends State<AddViewBody> {
                 prefixIcon: const Icon(
                   Icons.phone,
                 ),
-                onTap: () {
-                  FocusScope.of(context).requestFocus(
-                    contactFocusNode,
-                  );
-                  setState(() {});
-                },
               ),
               const SizedBox(height: 32),
               BlocConsumer<FirebaseBloc, FirebaseState>(

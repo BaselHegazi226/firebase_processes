@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/presentation/manager/firebase_bloc/firebase_bloc.dart';
-import '../helper/dialog_content.dart';
-import '../helper/dialog_title.dart';
+import 'dialog_content.dart';
+import 'dialog_title.dart';
 
 class CustomDialog extends StatefulWidget {
   const CustomDialog({

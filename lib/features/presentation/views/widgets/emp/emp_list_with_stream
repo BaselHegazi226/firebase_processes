@@ -1,0 +1,78 @@
+import 'package:copy_firebase_process/features/data/model/employee_model/employee_model.dart';
+import 'package:copy_firebase_process/features/presentation/manager/fetch_emp_cubit/fetch_emp_cubit.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../../../core/helper/custom_indicator.dart';
+import '../../../manager/firebase_bloc/firebase_bloc.dart';
+import '../../views/edit_view.dart';
+import 'emp_view_item.dart';
+
+class EmpList extends StatefulWidget {
+  const EmpList({super.key});
+
+  @override
+  State<EmpList> createState() => _EmpListState();
+}
+
+class _EmpListState extends State<EmpList> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<FetchEmpCubit>().fetchEmp();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<QuerySnapshot>(
+      stream: Services.fetchEmp(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(
+            child: CircularProgressIndicator(
+              color: Colors.blueGrey,
+            ),
+          );
+        } else if (snapshot.hasError) {
+          return const Center(child: Text('Error'));
+        } else if (!snapshot.hasData || snapshot.data == null) {
+          return const Center(child: Text('No available data'));
+        } else {
+          return successState(snapshot);
+        }
+      },
+    );
+  }
+
+  ListView successState(AsyncSnapshot<QuerySnapshot<Object?>> snapshot) {
+    var list = snapshot.data!.docs;
+    var length = snapshot.data!.size;
+    return ListView.builder(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 16,
+        vertical: 16,
+      ),
+      itemCount: snapshot.data!.size,
+      physics: const BouncingScrollPhysics(),
+      itemBuilder: (context, index) {
+        var employeeDoc = list.reversed.toList()[length - index - 1];
+        EmployeeModel employeeModel =
+            EmployeeModel.fromJson(employeeDoc.data());
+        return EmpViewItem(
+          employeeModel: employeeModel,
+          editPressed: () {
+            GoRouter.of(context).push(
+              EditView.id,
+              extra: employeeModel,
+            );
+          },
+          deletePressed: () {
+            Services.deleteEmp(
+              id: employeeDoc.id,
+            );
+          },
+        );
+      },
+    );
+  }

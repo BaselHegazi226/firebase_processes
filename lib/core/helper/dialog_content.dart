@@ -7,12 +7,12 @@ class DialogContent extends StatelessWidget {
   final VoidCallback onToggleDeleteAll;
 
   const DialogContent({
-    Key? key,
+    super.key,
     required this.deleteAll,
     required this.iconData,
     required this.contentColor,
     required this.onToggleDeleteAll,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

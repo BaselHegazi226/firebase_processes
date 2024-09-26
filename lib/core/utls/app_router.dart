@@ -1,7 +1,7 @@
-import 'package:copy_firebase_process/features/presentation/views/views/home_view.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../features/presentation/views/views/edit_view.dart';
+import '../../features/presentation/views/edit_view.dart';
+import '../../features/presentation/views/home_view.dart';
 
 abstract class AppRouter {
   static final router = GoRouter(routes: [

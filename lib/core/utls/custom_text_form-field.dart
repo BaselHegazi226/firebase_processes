@@ -37,7 +37,13 @@ class CustomTextFormField extends StatelessWidget {
         maxLines: null,
         onFieldSubmitted: onFieldSubmitted,
         onSaved: onSaved,
-        onTap: onTap,
+        onTap: () {
+          setState(() {
+            FocusScope.of(context).requestFocus(
+              nameFocusNode,
+            );
+          });
+        },
         controller: textEditingController,
         obscureText: obscureText,
         onChanged: onChanged,

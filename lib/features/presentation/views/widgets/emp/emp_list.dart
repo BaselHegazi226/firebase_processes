@@ -1,11 +1,11 @@
 import 'package:copy_firebase_process/core/utls/shimmer_list.dart';
 import 'package:copy_firebase_process/features/data/model/employee_model/employee_model.dart';
 import 'package:copy_firebase_process/features/presentation/manager/fetch_emp_cubit/fetch_emp_cubit.dart';
-import 'package:copy_firebase_process/features/presentation/views/views/edit_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../edit_view.dart';
 import 'emp_view_item.dart';
 
 class EmpList extends StatefulWidget {

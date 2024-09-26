@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../../core/helper/constant.dart';
 import '../../../../../core/utls/custom_dialog.dart';
 import '../../../../../core/utls/custom_profile_image.dart';
-import '../../views/edit_view.dart';
+import '../../edit_view.dart';
 import '../edit/edit_Icon.dart';
 import 'emp_data.dart';
 import 'emp_data_decor.dart';

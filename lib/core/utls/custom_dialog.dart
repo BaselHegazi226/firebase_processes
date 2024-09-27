@@ -54,7 +54,7 @@ class _CustomDialogState extends State<CustomDialog> {
                 borderRadius: BorderRadius.circular(8),
                 side: BorderSide(
                   color: contentColor,
-                  width: 2,
+                  width: 4,
                 ),
               ),
               title: DialogTitle(
@@ -106,8 +106,9 @@ class _CustomDialogState extends State<CustomDialog> {
           widget.leftText,
           style: TextStyle(
             color: Colors.white.withOpacity(.4),
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w900,
             fontSize: 20,
+            fontFamily: 'cairo',
           ),
         ),
       ),
@@ -120,8 +121,9 @@ class _CustomDialogState extends State<CustomDialog> {
           widget.rightText,
           style: TextStyle(
             color: contentColor,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w900,
             fontSize: 20,
+            fontFamily: 'cairo',
           ),
         ),
       ),

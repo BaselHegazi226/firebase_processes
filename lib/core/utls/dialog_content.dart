@@ -33,6 +33,7 @@ class DialogContent extends StatelessWidget {
             fontSize: 20,
             color: contentColor,
             fontWeight: FontWeight.bold,
+            fontFamily: 'cairo',
           ),
         ),
       ],

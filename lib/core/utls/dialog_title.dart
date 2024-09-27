@@ -22,6 +22,7 @@ class DialogTitle extends StatelessWidget {
             fontSize: 28,
             color: Colors.white.withOpacity(.8),
             fontWeight: FontWeight.w800,
+            fontFamily: 'cairo',
           ),
         ),
         const SizedBox(height: 4),

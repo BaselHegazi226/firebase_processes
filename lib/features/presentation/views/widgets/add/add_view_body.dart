@@ -8,9 +8,9 @@ import '../../../../../core/helper/custom_show_snack_bar.dart';
 import '../../../../../core/utls/button_title.dart';
 import '../../../../../core/utls/custom_profile_image.dart';
 import '../../../../../core/utls/custom_text_button.dart';
-import '../../../../../core/utls/custom_text_form-field.dart';
 import '../../../manager/firebase_bloc/firebase_bloc.dart';
 import 'add_drop_button.dart';
+import 'add_fields.dart';
 
 class AddViewBody extends StatefulWidget {
   const AddViewBody({super.key});
@@ -47,35 +47,13 @@ class _AddViewBodyState extends State<AddViewBody> {
                 profileImage: profileImage,
               ),
               const SizedBox(height: 16),
-              CustomTextFormField(
-                hintText: 'Name',
-                textEditingController: nameController,
-                focusNode: nameFocusNode,
-                color: nameFocusNode.hasFocus ? focusColor : defaultColor,
-                keyboardType: TextInputType.text,
-                prefixIcon: const Icon(
-                  Icons.person_rounded,
-                ),
-              ),
-              const SizedBox(height: 16),
-              CustomTextFormField(
-                hintText: 'Position',
-                textEditingController: posController,
-                focusNode: positionFocusNode,
-                color: positionFocusNode.hasFocus ? focusColor : defaultColor,
-                keyboardType: TextInputType.text,
-                prefixIcon: const Icon(Icons.work),
-              ),
-              const SizedBox(height: 16),
-              CustomTextFormField(
-                hintText: 'Contact Number',
-                textEditingController: contactController,
-                color: contactFocusNode.hasFocus ? focusColor : defaultColor,
-                focusNode: contactFocusNode,
-                keyboardType: TextInputType.phone,
-                prefixIcon: const Icon(
-                  Icons.phone,
-                ),
+              AddFields(
+                nameController: nameController,
+                nameFocusNode: nameFocusNode,
+                posController: posController,
+                contactController: contactController,
+                posFocusNode: positionFocusNode,
+                contactFocusNode: contactFocusNode,
               ),
               const SizedBox(height: 32),
               BlocConsumer<FirebaseBloc, FirebaseState>(

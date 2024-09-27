@@ -1,42 +1,52 @@
 import 'package:flutter/material.dart';
 
-import 'add_contact_field.dart';
-import 'add_name_field.dart';
-import 'add_pos_field.dart';
+import '../../../../../core/helper/constant.dart';
+import '../../../../../core/utls/custom_text_form-field.dart';
 
 class AddFields extends StatelessWidget {
-  const AddFields({
-    super.key,
-    required this.nameController,
-    required this.posController,
-    required this.contactController,
-    required this.nameFocusNode,
-    required this.positionFocusNode,
-    required this.contactFocusNode,
-  });
-  final TextEditingController nameController;
-  final TextEditingController posController;
-  final TextEditingController contactController;
-  final FocusNode nameFocusNode;
-  final FocusNode positionFocusNode;
-  final FocusNode contactFocusNode;
+  const AddFields(
+      {super.key,
+      required this.nameController,
+      required this.nameFocusNode,
+      required this.posController,
+      required this.contactController,
+      required this.posFocusNode,
+      required this.contactFocusNode});
+  final TextEditingController nameController, posController, contactController;
+  final FocusNode nameFocusNode, posFocusNode, contactFocusNode;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        AddNameField(
-          nameController: nameController,
-          nameFocusNode: nameFocusNode,
+        CustomTextFormField(
+          hintText: 'Name',
+          textEditingController: nameController,
+          focusNode: nameFocusNode,
+          color: nameFocusNode.hasFocus ? focusColor : defaultColor,
+          keyboardType: TextInputType.text,
+          prefixIcon: const Icon(
+            Icons.person_rounded,
+          ),
         ),
         const SizedBox(height: 16),
-        AddPosField(
-          positionFocusNode: positionFocusNode,
-          posController: posController,
+        CustomTextFormField(
+          hintText: 'Position',
+          textEditingController: posController,
+          focusNode: posFocusNode,
+          color: posFocusNode.hasFocus ? focusColor : defaultColor,
+          keyboardType: TextInputType.text,
+          prefixIcon: const Icon(Icons.work),
         ),
         const SizedBox(height: 16),
-        AddContactField(
-          contactFocusNode: contactFocusNode,
-          contactController: contactController,
+        CustomTextFormField(
+          hintText: 'Contact Number',
+          textEditingController: contactController,
+          color: contactFocusNode.hasFocus ? focusColor : defaultColor,
+          focusNode: contactFocusNode,
+          keyboardType: TextInputType.phone,
+          prefixIcon: const Icon(
+            Icons.phone,
+          ),
         ),
       ],
     );

@@ -14,12 +14,13 @@ void showSnackBar(BuildContext context, String snackText) {
       snackText,
       style: const TextStyle(
         color: Colors.white,
-        fontWeight: FontWeight.w600,
-        fontSize: 16,
+        fontWeight: FontWeight.bold,
+        fontSize: 18,
+        fontFamily: 'cairo',
       ),
     ),
     action: SnackBarAction(
-      textColor: Colors.grey.shade500,
+      textColor: Colors.grey,
       backgroundColor: Colors.white,
       label: 'Close',
       onPressed: () async {

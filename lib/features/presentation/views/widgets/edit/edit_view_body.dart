@@ -19,52 +19,6 @@ class EditViewBody extends StatefulWidget {
 }
 
 class _EditViewBodyState extends State<EditViewBody> {
-  late TextEditingController nameController;
-  late TextEditingController posController;
-  late TextEditingController contactController;
-
-  GlobalKey<FormState> formKey = GlobalKey();
-  AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
-
-  final FocusNode nameFocusNode = FocusNode();
-  final FocusNode positionFocusNode = FocusNode();
-  final FocusNode contactFocusNode = FocusNode();
-
-  final Color focusColor = Colors.blueGrey;
-  final Color defaultColor = Colors.grey;
-  String? gender;
-  late IconData genderIcon;
-  String? profileImage;
-  bool isEnableButton = false;
-  bool isChangeGender = false;
-
-  @override
-  void initState() {
-    super.initState();
-    gender = widget.employeeModel.gender;
-    genderFun(gender);
-    controller();
-    nameController.addListener(validateInput);
-    posController.addListener(validateInput);
-    contactController.addListener(validateInput);
-  }
-
-  @override
-  void dispose() {
-    nameController.dispose();
-    posController.dispose();
-    contactController.dispose();
-    super.dispose();
-  }
-
-  void validateInput() {
-    setState(() {
-      isEnableButton = nameController.text.isNotEmpty ||
-          posController.text.isNotEmpty ||
-          contactController.text.isNotEmpty;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -145,5 +99,55 @@ class _EditViewBodyState extends State<EditViewBody> {
       profileImage = AssetsData.kImageProfile;
       gender = 'No Gender'; // Set default value if no gender is selected
     }
+  }
+
+  late TextEditingController nameController;
+  late TextEditingController posController;
+  late TextEditingController contactController;
+
+  GlobalKey<FormState> formKey = GlobalKey();
+  AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
+
+  final FocusNode nameFocusNode = FocusNode();
+  final FocusNode positionFocusNode = FocusNode();
+  final FocusNode contactFocusNode = FocusNode();
+
+  final Color focusColor = Colors.blueGrey;
+  final Color defaultColor = Colors.grey;
+  String? gender;
+  late IconData genderIcon;
+  String? profileImage;
+  bool isEnableButton = false;
+  bool isChangeGender = false;
+
+  @override
+  void initState() {
+    super.initState();
+    gender = widget.employeeModel.gender;
+    genderFun(gender);
+    controller();
+    controllerListenFun();
+  }
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    posController.dispose();
+    contactController.dispose();
+    super.dispose();
+  }
+
+  void controllerListenFun() {
+    nameController.addListener(validateInput);
+    posController.addListener(validateInput);
+    contactController.addListener(validateInput);
+  }
+
+  void validateInput() {
+    setState(() {
+      isEnableButton = nameController.text.isNotEmpty ||
+          posController.text.isNotEmpty ||
+          contactController.text.isNotEmpty;
+    });
   }
 }

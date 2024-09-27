@@ -27,10 +27,6 @@ class _EditNumFieldState extends State<EditNumField> {
       prefixIcon: const Icon(
         Icons.person_rounded,
       ),
-      onTap: () {
-        FocusScope.of(context).requestFocus(widget.nameFocusNode);
-        setState(() {});
-      },
     );
   }
 

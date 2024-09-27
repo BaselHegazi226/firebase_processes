@@ -29,10 +29,6 @@ class _EditPosFieldState extends State<EditPosField> {
       prefixIcon: const Icon(
         Icons.work,
       ),
-      onTap: () {
-        FocusScope.of(context).requestFocus(widget.positionFocusNode);
-        setState(() {});
-      },
     );
   }
 

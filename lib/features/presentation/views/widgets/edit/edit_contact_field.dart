@@ -30,10 +30,6 @@ class _EditContactFieldState extends State<EditContactField> {
       prefixIcon: const Icon(
         Icons.phone,
       ),
-      onTap: () {
-        FocusScope.of(context).requestFocus(widget.contactFocusNode);
-        setState(() {});
-      },
     );
   }
 

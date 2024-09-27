@@ -43,6 +43,7 @@ class _EditButtonState extends State<EditButton> {
         listener: (context, state) {
       if (state is UpdateEmpSuccess) {
         showSnackBar(context, 'Success Update');
+        setState(() {});
       }
     }, builder: (context, state) {
       return CustomTextButton(
@@ -50,14 +51,16 @@ class _EditButtonState extends State<EditButton> {
         backgroundColor:
             (widget.isEnableButton) ? kEnableButtonColor : kDisableButtonColor,
         shadowColor: kShadowButtonColor,
-        onPressed: () async {
-          if (widget.formKey.currentState!.validate()) {
-            updateEvent(context);
-            FocusScope.of(context).unfocus();
-          } else {
-            autoValidateMode = AutovalidateMode.always;
-          }
-        },
+        onPressed: (widget.isEnableButton)
+            ? () async {
+                if (widget.formKey.currentState!.validate()) {
+                  updateEvent(context);
+                  FocusScope.of(context).unfocus();
+                } else {
+                  autoValidateMode = AutovalidateMode.always;
+                }
+              }
+            : null,
         child: (state is UpdateEmpLoading)
             ? const CustomIndicator(
                 color: Colors.white,
